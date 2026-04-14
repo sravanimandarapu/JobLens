@@ -1,0 +1,106 @@
+{
+    "skills": [
+        "Python", "Data Analysis", "Machine Learning", "Communication", "Project Management", "Deep Learning", "SQL", "Tableau",
+        "Java", "C++", "JavaScript", "HTML", "CSS", "React", "Angular", "Node.js", "MongoDB", "Express.js", "Git",
+        "Research", "Statistics", "Quantitative Analysis", "Qualitative Analysis", "SPSS", "Data Visualization", "Matplotlib",
+        "Seaborn", "Plotly", "Pandas", "Numpy", "Scikit-learn", "TensorFlow", "Keras", "PyTorch", "NLTK", "Text Mining",
+        "Natural Language Processing", "Computer Vision", "Image Processing", "OCR", "Speech Recognition", "Recommendation Systems",
+        "Collaborative Filtering", "Content-Based Filtering", "Reinforcement Learning", "Neural Networks", "Convolutional Neural Networks",
+        "Recurrent Neural Networks", "Generative Adversarial Networks", "XGBoost", "Random Forest", "Decision Trees", "Support Vector Machines",
+        "Linear Regression", "Logistic Regression", "K-Means Clustering", "Hierarchical Clustering", "DBSCAN", "Association Rule Learning",
+        "Apache Hadoop", "Apache Spark", "MapReduce", "Hive", "HBase", "Apache Kafka", "Data Warehousing", "ETL", "Big Data Analytics",
+        "Cloud Computing", "Amazon Web Services (AWS)", "Microsoft Azure", "Google Cloud Platform (GCP)", "Docker", "Kubernetes", "Linux",
+        "Shell Scripting", "Cybersecurity", "Network Security", "Penetration Testing", "Firewalls", "Encryption", "Malware Analysis",
+        "Digital Forensics", "CI/CD", "DevOps", "Agile Methodology", "Scrum", "Kanban", "Continuous Integration", "Continuous Deployment",
+        "Software Development", "Web Development", "Mobile Development", "Backend Development", "Frontend Development", "Full-Stack Development",
+        "UI/UX Design", "Responsive Design", "Wireframing", "Prototyping", "User Testing", "Adobe Creative Suite", "Photoshop", "Illustrator",
+        "InDesign", "Figma", "Sketch", "Zeplin", "InVision", "Product Management", "Market Research", "Customer Development", "Lean Startup",
+        "Business Development", "Marketing", "Content Marketing", "Social Media Marketing", "Email Marketing", "SEO", "SEM", "PPC",
+        "Google Analytics", "Facebook Ads", "LinkedIn Ads", "Lead Generation", "Customer Relationship Management (CRM)", "Salesforce",
+        "HubSpot", "Zendesk", "Intercom", "Customer Support", "Technical Support", "Troubleshooting", "Ticketing Systems", "ServiceNow",
+        "ITIL", "Quality Assurance", "Manual Testing", "Automated Testing", "Selenium", "JUnit", "Load Testing", "Performance Testing",
+        "Regression Testing", "Black Box Testing", "White Box Testing", "API Testing", "Mobile Testing", "Usability Testing", "Accessibility Testing",
+        "Cross-Browser Testing", "Agile Testing", "User Acceptance Testing", "Software Documentation", "Technical Writing", "Copywriting",
+        "Editing", "Proofreading", "Content Management Systems (CMS)", "WordPress", "Joomla", "Drupal", "Magento", "Shopify", "E-commerce",
+        "Payment Gateways", "Inventory Management", "Supply Chain Management", "Logistics", "Procurement", "ERP Systems", "SAP", "Oracle",
+        "Microsoft Dynamics", "Power BI", "QlikView", "Looker", "Data Governance", "Predictive Analytics", "Prescriptive Analytics",
+        "Descriptive Analytics", "Business Intelligence", "Dashboarding", "Reporting", "Data Mining", "Web Scraping", "API Integration",
+        "RESTful APIs", "GraphQL", "SOAP", "Microservices", "Serverless Architecture", "Lambda Functions", "Event-Driven Architecture",
+        "Message Queues", "Socket.io", "WebSockets", "Ruby", "Ruby on Rails", "Symfony", "Laravel", "CakePHP", "Zend Framework",
+        "ASP.NET", "C#", "VB.NET", "ASP.NET MVC", "Entity Framework", "Spring", "Hibernate", "Struts", "Kotlin", "Swift", "Objective-C",
+        "iOS Development", "Android Development", "Flutter", "React Native", "Ionic", "Mobile UI/UX Design", "Material Design", "SwiftUI",
+        "RxJava", "RxSwift", "Django", "Flask", "FastAPI", "Falcon", "Tornado", "WebSockets", "GraphQL", "RESTful Web Services", "SOAP",
+        "Microservices Architecture", "Server Administration", "System Administration", "Network Administration", "Database Administration",
+        "MySQL", "PostgreSQL", "SQLite", "Microsoft SQL Server", "Oracle Database", "NoSQL", "MongoDB", "Cassandra", "Redis", "Elasticsearch",
+        "Firebase", "Google Tag Manager", "Adobe Analytics", "Marketing Automation", "Customer Data Platforms", "Segment",
+        "Salesforce Marketing Cloud", "Zapier", "IFTTT", "Workflow Automation", "Robotic Process Automation (RPA)", "UI Automation",
+        "Natural Language Generation (NLG)", "Virtual Reality (VR)", "Augmented Reality (AR)", "Mixed Reality (MR)", "Unity", "Unreal Engine",
+        "3D Modeling", "Animation", "Motion Graphics", "Game Design", "Game Development", "Level Design", "Unity3D", "Unreal Engine 4",
+        "Blender", "Maya", "Adobe After Effects", "Adobe Premiere Pro", "Final Cut Pro", "Video Editing", "Audio Editing", "Sound Design",
+        "Music Production", "Digital Marketing", "Content Strategy", "Conversion Rate Optimization (CRO)", "A/B Testing",
+        "Customer Experience (CX)", "Persona Development", "User Journey Mapping", "Information Architecture (IA)",
+        "Accessibility Compliance", "Internationalization (I18n)", "Localization (L10n)", "Voice User Interface (VUI)",
+        "Chatbots", "Natural Language Understanding (NLU)", "Speech Synthesis", "Emotion Detection", "Sentiment Analysis",
+        "Image Recognition", "Object Detection", "Facial Recognition", "Gesture Recognition", "Document Recognition",
+        "Fraud Detection", "Cyber Threat Intelligence", "Security Information and Event Management (SIEM)",
+        "Vulnerability Assessment", "Incident Response", "Forensic Analysis", "Security Operations Center (SOC)",
+        "Identity and Access Management (IAM)", "Single Sign-On (SSO)", "Multi-Factor Authentication (MFA)",
+        "Blockchain", "Cryptocurrency", "Decentralized Finance (DeFi)", "Smart Contracts", "Web3",
+        "Non-Fungible Tokens (NFTs)", "AutoML", "Bayesian Networks", "Hyperparameter Tuning", "Explainable AI (XAI)",
+        "Quantum Machine Learning", "Time Series Analysis", "Bioinformatics", "Graph Neural Networks", "Edge AI",
+        "Clean Code Principles", "Design Patterns", "Domain-Driven Design", "Event-Driven Programming",
+        "Functional Programming", "Low-Code & No-Code Development", "Parallel Computing", "Reactive Programming",
+        "Terraform", "Ansible", "Helm", "OpenShift", "Cloud-Native Computing", "Multi-Cloud Strategy",
+        "Reverse Engineering", "Threat Hunting", "Dark Web Analysis", "Social Engineering", "Zero Trust Security",
+        "Distributed Ledger Technology (DLT)", "Solidity Smart Contract Security", "Hyperledger Fabric",
+        "Ethereum Layer 2 Solutions", "DAO Governance", "AI-Generated Art & Animation", "Spatial Computing",
+        "Haptics Technology", "Virtual Production", "Quantitative Trading", "Risk Management", "Actuarial Science",
+        "Economic Modeling", "Ethical AI & Bias Mitigation", "AI for Healthcare", "IoT Security",
+        "Computational Photography", "Space Tech & Satellite Data Analysis"
+         ,"Cooking", "Baking", "Grilling", "Pastry Making", "Cake Decorating", "Sous Vide Cooking", "Sushi Preparation",
+        "Food Plating", "Barbecue Techniques", "Bread Making", "Fermentation", "Chocolate Making", "Wine Pairing",
+        "Bartending", "Mixology", "Coffee Brewing", "Latte Art", 
+        
+        "Military Strategy", "Hand-to-Hand Combat", "Weapons Handling", "Firearms Training", "Sniping", "Tactical Operations",
+        "Explosives Handling", "Camouflage Techniques", "Survival Skills", "Wilderness Navigation", "Urban Combat",
+        "Hostage Rescue", "Counter-Terrorism", "Martial Arts", "Self-Defense", "Knife Combat", 
+        
+        "First Aid", "CPR", "Emergency Medicine", "Search and Rescue", "Disaster Response", "Firefighting", "EMT Training",
+        "Water Rescue", "Animal Handling", "Equestrian Skills", "Falconry", 
+        
+        "Astronomy", "Astrophysics", "Rocket Science", "Orbital Mechanics", "Space Exploration", "Drone Piloting", 
+        "Aviation", "Aircraft Maintenance", "Flight Navigation", "Paragliding", "Scuba Diving", "Freediving", "Mountaineering",
+        "Rock Climbing", "Parkour", "Extreme Sports", "Skydiving", "Bungee Jumping", "Wingsuit Flying", 
+        
+        "Car Repair", "Welding", "Blacksmithing", "Woodworking", "Furniture Making", "Knife Forging", "Leatherworking", 
+        "Pottery", "Glassblowing", "Jewelry Making", "Weaving", "Carpentry", 
+        
+        "Sailing", "Fishing", "Archery", "Hunting", "Trapping", "Foraging", "Beekeeping", "Permaculture", 
+        "Organic Farming", "Hydroponics", "Aquaponics", 
+        
+        "Storytelling", "Creative Writing", "Screenwriting", "Poetry", "Public Speaking", "Podcasting", "Voice Acting", 
+        "Stand-Up Comedy", "Improv Comedy", "Acting", "Stage Combat", "Stunt Coordination", 
+        
+        "Music Composition", "Singing", "Guitar Playing", "Piano Playing", "Drumming", "DJing", "Beatboxing", "Music Production", 
+        "Audio Engineering", "Sound Design", "Foley Art", 
+        
+        "Linguistics", "Language Translation", "Sign Language", "Lip Reading", "Forensic Linguistics", "Braille Reading",
+        "Espionage", "Cryptanalysis", "Counter-Intelligence", "Psychological Warfare", "Propaganda Analysis", 
+        
+        "Fashion Design", "Textile Design", "Shoe Making", "Jewelry Design", "Embroidery", "Costume Design",
+        
+        "Tattooing", "Body Piercing", "Makeup Artistry", "Special Effects Makeup", "Hair Styling", "Wig Making",
+        
+        "Event Planning", "Wedding Planning", "Set Design", "Interior Design", "Real Estate Staging", 
+        
+        "Feng Shui", "Astrology", "Tarot Reading", "Numerology", "Psychic Readings", "Meditation", "Yoga Instruction", 
+        
+        "Dog Training", "Horse Training", "Animal Grooming", "Veterinary Assistance", 
+        
+        "Juggling", "Magic Tricks", "Circus Performance", "Fire Breathing", "Acrobatics", 
+        
+        "Chess Strategy", "Poker Strategy", "Esports Coaching", "Speedrunning", "Game Design", "Virtual Reality Development"
+]
+       
+   
+}
