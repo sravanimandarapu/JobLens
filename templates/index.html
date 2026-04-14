@@ -1,1 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobLens AI</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
+        body {
+            background: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header and Navigation */
+        header {
+            background: linear-gradient(90deg, #007bff, #0056b3);
+            color: white;
+            padding: 15px 30px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav div {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #e0e0e0;
+        }
+
+        nav select {
+            padding: 5px;
+            border-radius: 5px;
+            border: none;
+            background: #0056b3;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Home Section */
+        #home {
+            background: url('https://images.unsplash.com/photo-1516321318423-9b5d656a6749?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        #home::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        #home div {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+        }
+
+        #home h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        #home p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        #home a {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        #home a:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        /* Features Section */
+        #features {
+            padding: 60px 30px;
+            background: white;
+            text-align: center;
+        }
+
+        #features h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: #007bff;
+        }
+
+        #features > div {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        #features > div > div {
+            flex: 1;
+            min-width: 280px;
+            max-width: 350px;
+            padding: 25px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        #features > div > div:hover {
+            transform: translateY(-5px);
+        }
+
+        #features h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        #features p {
+            color: #666;
+        }
+
+        /* Upload Section */
+        #upload {
+            padding: 60px 30px;
+            background: #f5f7fa;
+            text-align: center;
+        }
+
+        #upload h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #007bff;
+        }
+
+        #upload form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #upload form > div {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        #upload form label {
+            font-weight: 500;
+            color: #333;
+            text-align: left;
+        }
+
+        #upload form input[type="file"] {
+            display: none;
+        }
+
+        #upload form label span {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        #upload form label span:hover {
+            background: #0056b3;
+        }
+
+        #upload form #file-name {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        #upload form textarea,
+        #upload form select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            width: 100%;
+            transition: border-color 0.3s;
+        }
+
+        #upload form textarea:focus,
+        #upload form select:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        #upload form > div:nth-child(4) {
+            flex-direction: row;
+            gap: 20px;
+        }
+
+        #upload form > div:nth-child(4) > div {
+            flex: 1;
+        }
+
+        #upload form button {
+            padding: 12px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        #upload form button:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+
+        /* Modal (Basic Styling) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .modal-content button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+
+            #home h1 {
+                font-size: 2em;
+            }
+
+            #home p {
+                font-size: 1em;
+            }
+
+            #features > div {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            #upload form > div:nth-child(4) {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div>JobLens AI</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#upload">Upload Resume</a></li>
+                <li>
+                    <select id="theme-select">
+                        <option value="light">Light Theme</option>
+                        <option value="dark">Dark Theme</option>
+                    </select>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div>
+            <h1>Resume Analyzer</h1>
+            <p>Unlock your career potential with JobLens AI. Upload your resume to get ATS compatibility scores, job role predictions, and personalized recommendations powered by advanced AI technology.</p>
+            <a href="#upload">Get Started</a>
+        </div>
+    </section>
+
+    <section id="features">
+        <h2>Why Choose JobLens AI?</h2>
+        <div>
+            <div>
+                <div>
+                    <h3>AI-Powered Analysis</h3>
+                    <p>Leverage advanced machine learning to analyze your resume with precision.</p>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <h3>ATS Compatibility</h3>
+                    <p>Get a detailed ATS score and recommendations to improve your resume.</p>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <h3>Job Predictions</h3>
+                    <p>Discover the best job roles and categories for your skills and experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="upload">
+        <h2>Upload Your Resume</h2>
+        <div>
+            <div>
+                <form id="resume-form">
+                    <div>
+                        <div>
+                            <label>Drag & Drop your resume here or</label>
+                            <label>
+                                <span>Choose File</span>
+                                <input type="file" id="resume-upload" accept=".pdf,.docx" required>
+                            </label>
+                            <span id="file-name">No file selected</span>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="job-description">Job Description (Optional)</label>
+                        <textarea id="job-description" rows="4"></textarea>
+                    </div>
+                    <div>
+                        <label for="industry">Industry (Optional)</label>
+                        <select id="industry">
+                            <option value="">Select Industry</option>
+                            <option value="software">Software</option>
+                            <option value="finance">Finance</option>
+                            <option value="marketing">Marketing</option>
+                            <option value="healthcare">Healthcare</option>
+                            <option value="data">Data</option>
+                        </select>
+                    </div>
+                    <div>
+                        <div>
+                            <label for="category-model">Job Category Model</label>
+                            <select id="category-model">
+                                <option value="nb">Naive Bayes</option>
+                                <option value="logistic">Logistic Regression</option>
+                                <option value="knn">K-Nearest Neighbors</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="role-model">Job Role Model</label>
+                            <select id="role-model">
+                                <option value="nb">Naive Bayes</option>
+                                <option value="logistic">Logistic Regression</option>
+                                <option value="knn">K-Nearest Neighbors</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <button type="submit">Analyze Resume</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 JobLens AI. All rights reserved.</p>
+    </footer>
+
+    <!-- Modal -->
+    <div id="info-modal" class="modal">
+        <div class="modal-content">
+            <h2>Information</h2>
+            <p id="modal-message"></p>
+            <button id="modal-close">Got It</button>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('resume-form');
+            const fileInput = document.getElementById('resume-upload');
+            const fileNameDisplay = document.getElementById('file-name');
+            const modal = document.getElementById('info-modal');
+            const modalMessage = document.getElementById('modal-message');
+            const modalClose = document.getElementById('modal-close');
+            const themeSelect = document.getElementById('theme-select');
+
+            // Update file name display when a file is selected
+            fileInput.addEventListener('change', () => {
+                if (fileInput.files.length > 0) {
+                    fileNameDisplay.textContent = fileInput.files[0].name;
+                } else {
+                    fileNameDisplay.textContent = 'No file selected';
+                }
+            });
+
+            // Theme toggle functionality
+            themeSelect.addEventListener('change', () => {
+                if (themeSelect.value === 'dark') {
+                    document.body.style.background = '#1a1a1a';
+                    document.body.style.color = '#e0e0e0';
+                    document.querySelectorAll('#features > div > div, #upload form').forEach(el => {
+                        el.style.background = '#2c2c2c';
+                        el.style.boxShadow = '0 4px 10px rgba(255, 255, 255, 0.1)';
+                    });
+                    document.querySelector('#features').style.background = '#1a1a1a';
+                    document.querySelector('#upload').style.background = '#1a1a1a';
+                } else {
+                    document.body.style.background = '#f5f7fa';
+                    document.body.style.color = '#333';
+                    document.querySelectorAll('#features > div > div, #upload form').forEach(el => {
+                        el.style.background = '';
+                        el.style.boxShadow = '';
+                    });
+                    document.querySelector('#features').style.background = '';
+                    document.querySelector('#upload').style.background = '';
+                }
+            });
+
+            // Handle form submission
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                // Validate file selection
+                if (!fileInput.files.length) {
+                    showModal('Please select a resume file to upload.');
+                    return;
+                }
+
+                const file = fileInput.files[0];
+                if (!file.name.toLowerCase().endsWith('.pdf') && !file.name.toLowerCase().endsWith('.docx')) {
+                    showModal('Only PDF and DOCX files are supported.');
+                    return;
+                }
+
+                const formData = new FormData();
+                formData.append('resume', file);
+                formData.append('job_description', document.getElementById('job-description').value);
+                formData.append('industry', document.getElementById('industry').value);
+                formData.append('categorization_model', document.getElementById('category-model').value);
+                formData.append('recommendation_model', document.getElementById('role-model').value);
+
+                try {
+                    // Call the /predict endpoint
+                    const predictResponse = await fetch('/predict', {
+                        method: 'POST',
+                        body: formData,
+                        signal: AbortSignal.timeout(60000) // 60 seconds timeout
+                    });
+
+                    if (!predictResponse.ok) {
+                        let errorMessage = `Predict endpoint failed: ${predictResponse.statusText}`;
+                        try {
+                            const errorData = await predictResponse.json();
+                            errorMessage = errorData.error || errorMessage;
+                        } catch (jsonError) {
+                            console.error('Failed to parse predict error response:', jsonError);
+                            const errorText = await predictResponse.text();
+                            errorMessage = errorText || errorMessage;
+                        }
+                        throw new Error(errorMessage);
+                    }
+
+                    const predictData = await predictResponse.json();
+
+                    // Call the /ats_check endpoint
+                    const atsResponse = await fetch('/ats_check', {
+                        method: 'POST',
+                        body: formData,
+                        signal: AbortSignal.timeout(60000) // 60 seconds timeout
+                    });
+
+                    if (!atsResponse.ok) {
+                        let errorMessage = `ATS Check endpoint failed: ${atsResponse.statusText}`;
+                        try {
+                            const errorData = await atsResponse.json();
+                            errorMessage = errorData.error || errorMessage;
+                        } catch (jsonError) {
+                            console.error('Failed to parse ATS check error response:', jsonError);
+                            const errorText = await atsResponse.text();
+                            errorMessage = errorText || errorMessage;
+                        }
+                        throw new Error(errorMessage);
+                    }
+
+                    const atsData = await atsResponse.json();
+
+                    // Combine the data and store in sessionStorage
+                    const combinedData = {
+                        predict: predictData,
+                        ats: atsData
+                    };

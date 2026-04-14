@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your JobLens AI Results</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(90deg, #007bff, #0056b3);
+            color: white;
+            padding: 15px 30px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1em;
+            color: #e0e0e0;
+        }
+
+        /* Sections */
+        section {
+            padding: 40px 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .section-box h2 {
+            font-size: 2em;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .section-box h3 {
+            font-size: 1.5em;
+            color: #333;
+            margin: 15px 0 10px;
+        }
+
+        .section-box p, .section-box li {
+            color: #666;
+        }
+
+        .score {
+            font-size: 2em;
+            font-weight: bold;
+            color: #007bff;
+            margin: 10px 0;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            margin: 8px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #007bff;
+            font-size: 1.2em;
+        }
+
+        /* Collapsible Sections */
+        .collapsible {
+            cursor: pointer;
+            padding: 10px;
+            background: #f5f7fa;
+            border-radius: 5px;
+            margin: 10px 0;
+            transition: background 0.3s;
+        }
+
+        .collapsible:hover {
+            background: #e0e0e0;
+        }
+
+        .collapsible-content {
+            display: none;
+            padding: 15px;
+            border-left: 2px solid #007bff;
+            margin-left: 10px;
+        }
+
+        .collapsible.active + .collapsible-content {
+            display: block;
+        }
+
+        /* Back Button */
+        .back-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
+            text-align: center;
+        }
+
+        .back-btn:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            header p {
+                font-size: 0.9em;
+            }
+
+            .section-box {
+                padding: 20px;
+            }
+
+            .section-box h2 {
+                font-size: 1.5em;
+            }
+
+            .section-box h3 {
+                font-size: 1.2em;
+            }
+
+            .score {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Your JobLens AI Results</h1>
+        <p>Here's a detailed analysis of your resume to help you shine!</p>
+    </header>
+
+    <section id="ats-compatibility" class="section-box">
+        <h2>ATS Compatibility</h2>
+        <div>
+            <h3>ATS Score</h3>
+            <p class="score" id="ats-score">N/A</p>
+        </div>
+        <p>Note: A higher ATS score indicates better compatibility and more accurate extraction of details from your resume.</p>
+
+        <div>
+            <h3>File Format</h3>
+            <p><strong>Format:</strong> <span id="file-format">N/A</span></p>
+            <p><strong>Size:</strong> <span id="file-size">N/A</span> MB</p>
+            <div id="file-issues"></div>
+        </div>
+
+        <div>
+            <h3>Warnings</h3>
+            <ul id="ats-warnings"></ul>
+        </div>
+
+        <div>
+            <h3>Recommendations</h3>
+            <ul id="ats-recommendations"></ul>
+        </div>
+
+        <div>
+            <h3 class="collapsible">Detailed Analysis</h3>
+            <ul class="collapsible-content" id="ats-details"></ul>
+        </div>
+    </section>
+
+    <section id="resume-details" class="section-box">
+        <h2>Resume Details</h2>
+        <div>
+            <h3>Name</h3>
+            <p id="resume-name">N/A</p>
+        </div>
+        <div>
+            <h3>Email</h3>
+            <p id="resume-email">N/A</p>
+        </div>
+        <div>
+            <h3>Phone</h3>
+            <p id="resume-phone">N/A</p>
+        </div>
+        <div>
+            <h3>Skills</h3>
+            <p id="resume-skills">N/A</p>
+        </div>
+        <div>
+            <h3>Education</h3>
+            <ul id="resume-education"></ul>
+        </div>
+        <div>
+            <h3>Experience</h3>
+            <ul id="resume-experience"></ul>
+        </div>
+    </section>
+
+    <section id="job-predictions" class="section-box">
+        <h2>Job Predictions</h2>
+        <div>
+            <h3>Predicted Job Category</h3>
+            <p id="job-category">N/A</p>
+            <h4 class="collapsible">Category Probabilities</h4>
+            <ul class="collapsible-content" id="category-probabilities"></ul>
+        </div>
+        <div>
+            <h3>Predicted Job Role</h3>
+            <p id="job-role">N/A</p>
+            <h4 class="collapsible">Role Probabilities</h4>
+            <ul class="collapsible-content" id="role-probabilities"></ul>
+        </div>
+    </section>
+
+    <section>
+        <a href="/" class="back-btn">Back to Home</a>
+    </section>
+
+    <footer>
+        <p>© 2025 JobLens AI. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Retrieve data from sessionStorage
+            const data = JSON.parse(sessionStorage.getItem('analysisResults'));
+            if (!data) {
+                alert('No analysis data found. Please upload your resume again.');
+                window.location.href = '/';
+                return;
+            }
+
+            const { predict, ats } = data;
+
+            // Populate ATS Compatibility Section
+            document.getElementById('ats-score').textContent = ats.score || 'N/A';
+            document.getElementById('file-format').textContent = ats.file_format.format || 'N/A';
+            document.getElementById('file-size').textContent = ats.file_format.size_mb || 'N/A';
+
+            const fileIssues = document.getElementById('file-issues');
+            if (ats.file_format.issues && ats.file_format.issues.length > 0) {
+                fileIssues.innerHTML = '<h4>Issues:</h4><ul>' + ats.file_format.issues.map(issue => `<li>${issue}</li>`).join('') + '</ul>';
+            }
+
+            const warningsList = document.getElementById('ats-warnings');
+            if (ats.warnings && ats.warnings.length > 0) {
+                warningsList.innerHTML = ats.warnings.map(warning => `<li>${warning}</li>`).join('');
+            } else {
+                warningsList.innerHTML = '<li>No warnings.</li>';
+            }
+
+            const recommendationsList = document.getElementById('ats-recommendations');
+            if (ats.recommendations && ats.recommendations.length > 0) {
+                recommendationsList.innerHTML = ats.recommendations.map(rec => `<li>${rec}</li>`).join('');
+            } else {
+                recommendationsList.innerHTML = '<li>No recommendations.</li>';
+            }
+
+            const detailsList = document.getElementById('ats-details');
+            if (ats.details) {
+                let detailsHTML = '';
+                if (ats.details.structure) {
+                    detailsHTML += `<li><strong>Structure:</strong> Found sections - ${ats.details.structure.found_sections?.join(', ') || 'N/A'}</li>`;
+                    detailsHTML += `<li><strong>Missing Sections:</strong> ${ats.details.structure.missing_sections?.join(', ') || 'N/A'}</li>`;
+                }
+                if (ats.details.content) {
+                    detailsHTML += `<li><strong>Word Count:</strong> ${ats.details.content.word_count || 'N/A'}</li>`;
+                    detailsHTML += `<li><strong>Skills Detected:</strong> ${ats.details.content.skills?.join(', ') || 'N/A'}</li>`;
+                }
+                if (ats.details.industry_benchmark) {
+                    detailsHTML += `<li><strong>Industry Relevance:</strong> ${(ats.details.industry_benchmark.industry_relevance * 100).toFixed(2)}%</li>`;
+                    detailsHTML += `<li><strong>Missing Keywords:</strong> ${ats.details.industry_benchmark.missing_keywords?.join(', ') || 'N/A'}</li>`;
+                }
+                detailsList.innerHTML = detailsHTML || '<li>No detailed analysis available.</li>';
+            }
+
+            // Populate Resume Details Section
+            document.getElementById('resume-name').textContent = predict.Resume_Data.Name || 'N/A';
+            document.getElementById('resume-email').textContent = predict.Resume_Data.Email || 'N/A';
+            document.getElementById('resume-phone').textContent = predict.Resume_Data.Phone || 'N/A';
+            document.getElementById('resume-skills').textContent = predict.Resume_Data.Skills || 'N/A';
+
+            const educationList = document.getElementById('resume-education');
+            if (predict.Resume_Data.Education && Array.isArray(predict.Resume_Data.Education)) {
+                educationList.innerHTML = predict.Resume_Data.Education.map(edu => `<li>${edu}</li>`).join('');
+            } else {
+                educationList.innerHTML = '<li>Not Found</li>';
+            }
+
+            const experienceList = document.getElementById('resume-experience');
+            if (predict.Resume_Data.Experience && Array.isArray(predict.Resume_Data.Experience)) {
+                const expHTML = predict.Resume_Data.Experience.map(exp => {
+                    if (typeof exp === 'string') {
+                        return `<li>${exp}</li>`;
+                    }
+                    return `<li><strong>${exp.Job_Title || 'N/A'}</strong> at ${exp.Company || 'N/A'} (${exp.Duration || 'N/A'})<ul>${exp.Key_Responsibilities?.map(resp => `<li>${resp}</li>`).join('') || '<li>No responsibilities listed</li>'}</ul></li>`;
+                }).join('');
+                experienceList.innerHTML = expHTML || '<li>Not Found</li>';
+            } else {
+                experienceList.innerHTML = '<li>Not Found</li>';
+            }
+
+            // Populate Job Predictions Section
+            document.getElementById('job-category').textContent = predict.Predictions.Categorization || 'N/A';
+            const catProbsList = document.getElementById('category-probabilities');
+            if (predict.Predictions.Category_Probabilities) {
+                catProbsList.innerHTML = Object.entries(predict.Predictions.Category_Probabilities)
+                    .map(([category, prob]) => `<li>${category}: ${prob}%</li>`)
+                    .join('');
+            } else {
+                catProbsList.innerHTML = '<li>No probabilities available.</li>';
+            }
+
+            document.getElementById('job-role').textContent = predict.Predictions.Job_Recommendation || 'N/A';
+            const roleProbsList = document.getElementById('role-probabilities');
+            if (predict.Predictions.Job_Recommendation_Probabilities) {
+                roleProbsList.innerHTML = Object.entries(predict.Predictions.Job_Recommendation_Probabilities)
+                    .map(([role, prob]) => `<li>${role}: ${prob}%</li>`)
+                    .join('');
+            } else {
+                roleProbsList.innerHTML = '<li>No probabilities available.</li>';
+            }
+
+            // Collapsible sections
+            document.querySelectorAll('.collapsible').forEach(collapsible => {
+                collapsible.addEventListener('click', () => {
+                    collapsible.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
