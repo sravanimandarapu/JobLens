@@ -1,0 +1,19 @@
+# Node.js
+node_modules/
+build/
+
+# Python
+__pycache__/
+*.pyc
+
+# VSCode/IDE
+.vscode/
+.env
+
+# Large Files
+model/
+datasets/
+
+# Log & temp files
+*.log
+*.tmp
